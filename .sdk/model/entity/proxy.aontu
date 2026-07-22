@@ -1,0 +1,58 @@
+# Entity: proxy
+
+main: kit: entity: proxy: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "port"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "secret"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "server"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "proxy"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/proxies"
+          parts: [
+            "api"
+            "proxies"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,18 @@
+# BasicPingFlow
+
+main: kit: flow: BasicPingFlow:
+{
+  entity: "ping",
+  kind: "basic",
+  name: "BasicPingFlow",
+  step: [
+    {
+      input: {
+        ref: "ping_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicPingFlow"
+}

@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/fastcon"
+      }
+      description: "The Fastcon API provides V2Ray-based VLESS and Trojan proxy configurations specifically designed for bypassing internet censorship, particularly for Telegram. It allows users to retrieve proxy lists and perform ping tests to evaluate connection speeds."
+      servers: [
+        {
+          description: "Fastcon API Server"
+          url: "https://fastcon.harknmav.fun"
+        }
+      ]
+      summary: "The Fastcon API provides V2Ray-based VLESS and Trojan proxy configurations specifically designed for bypassing internet censorship, particularly for Telegram."
+      title: "Fastcon API"
+      version: "1.0.0"
+      website: "https://github.com/l0v3m0n3y/fastcon"
+    }
+  }
+}
+

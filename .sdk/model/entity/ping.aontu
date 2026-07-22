@@ -1,0 +1,54 @@
+# Entity: ping
+
+main: kit: entity: ping: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "server_id"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "time"
+      req: true
+      type: "`$NUMBER`"
+    }
+  ]
+
+  name: "ping"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/api/ping"
+          parts: [
+            "api"
+            "ping"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

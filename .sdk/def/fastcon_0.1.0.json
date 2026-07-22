@@ -1,0 +1,227 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fastcon API",
+    "description": "The Fastcon API provides V2Ray-based VLESS and Trojan proxy configurations specifically designed for bypassing internet censorship, particularly for Telegram. It allows users to retrieve proxy lists and perform ping tests to evaluate connection speeds.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/fastcon"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://fastcon.harknmav.fun",
+      "description": "Fastcon API Server"
+    }
+  ],
+  "paths": {
+    "/api/proxies": {
+      "get": {
+        "operationId": "getTelegramProxyList",
+        "summary": "Get Telegram proxy list",
+        "description": "Retrieves a list of V2Ray-based VLESS and Trojan proxy configurations designed for bypassing internet censorship, primarily for Telegram.",
+        "tags": [
+          "Proxies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with proxy list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProxyConfiguration"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "1",
+                    "server": "example.proxy.com",
+                    "port": 443,
+                    "secret": "dd00000000000000000000000000000000"
+                  }
+                ]
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ping": {
+      "post": {
+        "operationId": "pingServer",
+        "summary": "Ping server",
+        "description": "Performs a ping test to a specific proxy server to evaluate connection speed and latency.",
+        "tags": [
+          "Proxies"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "server_id"
+                ],
+                "properties": {
+                  "server_id": {
+                    "type": "string",
+                    "description": "The ID of the proxy server to ping"
+                  }
+                }
+              },
+              "example": {
+                "server_id": "1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful ping response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResult"
+                },
+                "example": {
+                  "server_id": "1",
+                  "time": 45,
+                  "status": "success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid server ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Server not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProxyConfiguration": {
+        "type": "object",
+        "description": "V2Ray-based VLESS or Trojan proxy configuration",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the proxy server"
+          },
+          "server": {
+            "type": "string",
+            "description": "Proxy server hostname or IP address"
+          },
+          "port": {
+            "type": "integer",
+            "description": "Proxy server port number",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "secret": {
+            "type": "string",
+            "description": "Secret key for proxy authentication"
+          }
+        },
+        "required": [
+          "server",
+          "port",
+          "secret"
+        ]
+      },
+      "PingResult": {
+        "type": "object",
+        "description": "Result of a ping test to a proxy server",
+        "properties": {
+          "server_id": {
+            "type": "string",
+            "description": "The ID of the pinged server"
+          },
+          "time": {
+            "type": "number",
+            "description": "Ping time in milliseconds"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the ping operation",
+            "enum": [
+              "success",
+              "failed",
+              "timeout"
+            ]
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Proxies",
+      "description": "Operations related to proxy configurations and testing"
+    }
+  ],
+  "externalDocs": {
+    "description": "GitHub Repository",
+    "url": "https://github.com/l0v3m0n3y/fastcon"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "ping": {
+      "PING00": {
+        "server_id": "SERVER01",
+        "status": "s1f",
+        "time": 32,
+        "id": "PING00"
+      },
+      "PING01": {
+        "server_id": "SERVER01",
+        "status": "s3d",
+        "time": 62,
+        "id": "PING01"
+      },
+      "PING02": {
+        "server_id": "SERVER01",
+        "status": "s5b",
+        "time": 92,
+        "id": "PING02"
+      }
+    }
+  },
+  "new": {
+    "ping": {
+      "ping_ref01": {
+        "server_id": "SERVER01",
+        "status": "s79",
+        "time": 122
+      }
+    }
+  }
+}

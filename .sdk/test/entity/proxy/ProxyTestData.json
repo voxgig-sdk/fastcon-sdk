@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "proxy": {
+      "PROXY00": {
+        "id": "PROXY00",
+        "port": "s29",
+        "secret": "s2a",
+        "server": "s2b"
+      },
+      "PROXY01": {
+        "id": "PROXY01",
+        "port": "s51",
+        "secret": "s52",
+        "server": "s53"
+      },
+      "PROXY02": {
+        "id": "PROXY02",
+        "port": "s79",
+        "secret": "s7a",
+        "server": "s7b"
+      }
+    }
+  },
+  "new": {
+    "proxy": {
+      "proxy_ref01": {
+        "port": "sa1",
+        "secret": "sa2",
+        "server": "sa3"
+      }
+    }
+  }
+}

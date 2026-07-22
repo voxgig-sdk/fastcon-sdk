@@ -1,0 +1,22 @@
+# BasicProxyFlow
+
+main: kit: flow: BasicProxyFlow:
+{
+  entity: "proxy",
+  kind: "basic",
+  name: "BasicProxyFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "proxy_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicProxyFlow"
+}

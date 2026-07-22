@@ -1,0 +1,20 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: ping: {
+    path: "/api/ping": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: proxy: {
+    path: "/api/proxies": {
+      op: list: method: *GET
+    }
+  }
+
+}
