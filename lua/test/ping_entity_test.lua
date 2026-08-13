@@ -41,7 +41,7 @@ describe("PingEntity", function()
 
     local ping_ref01_data_result, err = ping_ref01_ent:create(ping_ref01_data, nil)
     assert.is_nil(err)
-    ping_ref01_data = helpers.to_map(ping_ref01_data_result)
+    ping_ref01_data = helpers.to_map(type(ping_ref01_data_result) == 'table' and ping_ref01_data_result.data_get and ping_ref01_data_result:data_get() or ping_ref01_data_result)
     assert.is_not_nil(ping_ref01_data)
 
   end)

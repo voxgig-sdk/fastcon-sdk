@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from fastcon_sdk.utility.voxgig_struct import voxgig_struct as vs
 from fastcon_sdk import FastconSDK
-from core import helpers
+from fastcon_sdk.core import helpers
 from test import runner
 
 

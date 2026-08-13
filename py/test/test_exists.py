@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Fastcon SDK exists test
 
 import pytest
 from fastcon_sdk import FastconSDK

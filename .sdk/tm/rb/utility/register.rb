@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FastconUtility.registrar = ->(u) {
   u.prepare_params = FastconUtilities::PrepareParams
   u.prepare_path = FastconUtilities::PreparePath
   u.prepare_query = FastconUtilities::PrepareQuery
+  u.graphql_body = FastconUtilities::GraphqlBody
+  u.graphql_errors = FastconUtilities::GraphqlErrors
   u.result_basic = FastconUtilities::ResultBasic
   u.result_body = FastconUtilities::ResultBody
   u.result_headers = FastconUtilities::ResultHeaders

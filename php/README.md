@@ -34,7 +34,7 @@ $client = new FastconSDK();
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created Ping record.
+// create() returns the ENTITY — call data_get() for the created Ping record.
 $created = $client->Ping()->create(["time" => 1]);
 
 ```
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = FastconSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $proxy = $client->Proxy()->list();
 print_r($proxy);
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FastconControl
-from core.error import FastconError
-from core.result import FastconResult
-from core.spec import FastconSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import FastconControl
+from projectname_sdk.core.error import FastconError
+from projectname_sdk.core.result import FastconResult
+from projectname_sdk.core.spec import FastconSpec
 
 
 # True when this SDK was generated with the named feature.

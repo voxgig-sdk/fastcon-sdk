@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import FastconSDK
-from core.error import FastconError
-from core.result import FastconResult
-from core.response import FastconResponse
-from core.spec import FastconSpec
-from feature.base_feature import FastconBaseFeature
+from projectname_sdk.core.error import FastconError
+from projectname_sdk.core.result import FastconResult
+from projectname_sdk.core.response import FastconResponse
+from projectname_sdk.core.spec import FastconSpec
+from projectname_sdk.feature.base_feature import FastconBaseFeature
 
 
 def _client():

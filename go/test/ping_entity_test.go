@@ -58,7 +58,7 @@ func TestPingEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		pingRef01Data = core.ToMapAny(pingRef01DataResult)
+		pingRef01Data = core.ToMapAny(entityData(pingRef01DataResult))
 		if pingRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}

@@ -33,7 +33,7 @@ client = FastconSDK.new
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created Ping record.
+# create returns the ENTITY — call data_get for the created Ping record.
 created = client.Ping.create({ "time" => 1 })
 
 ```
@@ -113,7 +113,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = FastconSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 proxy = client.Proxy.list()
 puts proxy
 ```

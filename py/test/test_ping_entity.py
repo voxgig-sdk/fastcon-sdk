@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from fastcon_sdk.utility.voxgig_struct import voxgig_struct as vs
 from fastcon_sdk import FastconSDK
-from core import helpers
+from fastcon_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestPingEntity:
         ping_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.ping"), "ping_ref01"))
 
-        ping_ref01_data = helpers.to_map(ping_ref01_ent.create(ping_ref01_data, None))
+        ping_ref01_data = helpers.to_map(runner.entity_data(ping_ref01_ent.create(ping_ref01_data, None)))
         assert ping_ref01_data is not None
 
 

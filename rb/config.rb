@@ -63,6 +63,7 @@ module FastconConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/api/ping",
                   "parts" => [
@@ -124,6 +125,7 @@ module FastconConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/proxies",
                   "parts" => [

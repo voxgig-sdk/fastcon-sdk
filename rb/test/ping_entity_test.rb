@@ -37,7 +37,7 @@ class PingEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.ping"), "ping_ref01"))
 
     ping_ref01_data_result = ping_ref01_ent.create(ping_ref01_data, nil)
-    ping_ref01_data = Helpers.to_map(ping_ref01_data_result)
+    ping_ref01_data = Helpers.to_map(ping_ref01_data_result.respond_to?(:data_get) ? ping_ref01_data_result.data_get : ping_ref01_data_result)
     assert !ping_ref01_data.nil?
 
   end

@@ -36,7 +36,7 @@ const client = new FastconSDK()
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created Ping
+// Create — returns the created Ping ENTITY (.data() for the record)
 const created = await client.Ping().create({
   time: 1,
 })
@@ -118,7 +118,8 @@ Create a mock client for unit testing — no server required:
 const client = FastconSDK.test()
 
 const proxy = await client.Proxy().list()
-// proxy is a bare entity populated with mock response data
+// proxy is the entity, populated with mock response data
+// — call proxy.data() for the record itself
 console.log(proxy)
 ```
 

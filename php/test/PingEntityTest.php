@@ -44,7 +44,7 @@ class PingEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.ping"), "ping_ref01"));
 
         $ping_ref01_data_result = $ping_ref01_ent->create($ping_ref01_data, null);
-        $ping_ref01_data = Helpers::to_map($ping_ref01_data_result);
+        $ping_ref01_data = Helpers::to_map(is_object($ping_ref01_data_result) && method_exists($ping_ref01_data_result, 'data_get') ? $ping_ref01_data_result->data_get() : $ping_ref01_data_result);
         $this->assertNotNull($ping_ref01_data);
 
     }

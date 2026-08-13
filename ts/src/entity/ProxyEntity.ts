@@ -37,7 +37,7 @@ class ProxyEntity extends FastconEntityBase<Proxy> {
 
 
 
-  async list(this: any, reqmatch?: ProxyListMatch, ctrl?: Control): Promise<Proxy[]> {
+  async list(this: any, reqmatch?: ProxyListMatch, ctrl?: Control): Promise<ProxyEntity[]> {
 
     const utility = this._utility
 

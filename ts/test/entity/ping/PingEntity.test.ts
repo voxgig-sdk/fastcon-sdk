@@ -62,7 +62,7 @@ describe('PingEntity', async () => {
     const ping_ref01_ent = client.Ping()
     let ping_ref01_data = setup.data.new.ping['ping_ref01']
 
-    ping_ref01_data = await ping_ref01_ent.create(ping_ref01_data)
+    ping_ref01_data = (await ping_ref01_ent.create(ping_ref01_data)).data()
     assert(null != ping_ref01_data)
 
 
