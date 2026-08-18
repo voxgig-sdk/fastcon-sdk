@@ -28,7 +28,7 @@ class FastconSDK
     utility = FastconUtility.new
     @_utility = utility
 
-    config = FastconConfig.make_config
+    config = FastconConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

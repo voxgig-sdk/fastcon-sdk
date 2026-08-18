@@ -40,7 +40,7 @@ class ProxyEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = FastconConfig::make_config();
+        $cfg = FastconConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = FastconSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

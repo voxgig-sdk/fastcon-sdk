@@ -23,8 +23,8 @@ class FastconSDK:
         utility = FastconUtility()
         self._utility = utility
 
-        from fastcon_sdk.config import make_config
-        config = make_config()
+        from fastcon_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

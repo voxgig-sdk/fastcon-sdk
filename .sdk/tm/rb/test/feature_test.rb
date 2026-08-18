@@ -15,7 +15,7 @@ require_relative "../Fastcon_sdk"
 module FastconFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = FastconConfig.make_config["feature"]
+    f = FastconConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

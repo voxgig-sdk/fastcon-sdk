@@ -40,7 +40,7 @@ class FastconSDK
         $utility = new FastconUtility();
         $this->_utility = $utility;
 
-        $config = FastconConfig::make_config();
+        $config = FastconConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
