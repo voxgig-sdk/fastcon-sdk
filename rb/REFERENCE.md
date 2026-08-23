@@ -97,9 +97,9 @@ ping = client.Ping
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `server_id` | `String` | No |  |
-| `status` | `String` | No |  |
-| `time` | `Float` | Yes |  |
+| `server_id` | `String` | No | The ID of the pinged server |
+| `status` | `String` | No | Status of the ping operation |
+| `time` | `Float` | Yes | Ping time in milliseconds |
 
 ### Field Usage by Operation
 
@@ -161,10 +161,10 @@ proxy = client.Proxy
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | No |  |
-| `port` | `Integer` | Yes |  |
-| `secret` | `String` | Yes |  |
-| `server` | `String` | Yes |  |
+| `id` | `String` | No | Unique identifier for the proxy server |
+| `port` | `Integer` | Yes | Proxy server port number |
+| `secret` | `String` | Yes | Secret key for proxy authentication |
+| `server` | `String` | Yes | Proxy server hostname or IP address |
 
 ### Operations
 

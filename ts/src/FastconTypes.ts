@@ -17,7 +17,7 @@ export interface PingCreateData {
   time: number
 }
 
-export interface Proxy {
+export interface ProxyType {
   id?: string
   port: number
   secret: string

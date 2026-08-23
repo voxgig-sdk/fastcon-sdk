@@ -6,7 +6,7 @@ The Golang SDK for the Fastcon API — an entity-oriented client using standard 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Ping(nil)` — each with the same small set of operations (`List`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,9 +261,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"server_id"` |  |
-| `"status"` |  |
-| `"time"` |  |
+| `"server_id"` | The ID of the pinged server |
+| `"status"` | Status of the ping operation |
+| `"time"` | Ping time in milliseconds |
 
 Operations: Create.
 
@@ -273,10 +273,10 @@ API path: `/api/ping`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"port"` |  |
-| `"secret"` |  |
-| `"server"` |  |
+| `"id"` | Unique identifier for the proxy server |
+| `"port"` | Proxy server port number |
+| `"secret"` | Secret key for proxy authentication |
+| `"server"` | Proxy server hostname or IP address |
 
 Operations: List.
 
@@ -301,9 +301,9 @@ Create an instance: `ping := client.Ping(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `server_id` | `string` |  |
-| `status` | `string` |  |
-| `time` | `float64` |  |
+| `server_id` | `string` | The ID of the pinged server |
+| `status` | `string` | Status of the ping operation |
+| `time` | `float64` | Ping time in milliseconds |
 
 #### Example: Create
 
@@ -332,10 +332,10 @@ Create an instance: `proxy := client.Proxy(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `port` | `int` |  |
-| `secret` | `string` |  |
-| `server` | `string` |  |
+| `id` | `string` | Unique identifier for the proxy server |
+| `port` | `int` | Proxy server port number |
+| `secret` | `string` | Secret key for proxy authentication |
+| `server` | `string` | Proxy server hostname or IP address |
 
 #### Example: List
 

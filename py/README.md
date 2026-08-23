@@ -239,9 +239,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `server_id` |  |
-| `status` |  |
-| `time` |  |
+| `server_id` | The ID of the pinged server |
+| `status` | Status of the ping operation |
+| `time` | Ping time in milliseconds |
 
 Operations: Create.
 
@@ -251,10 +251,10 @@ API path: `/api/ping`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `port` |  |
-| `secret` |  |
-| `server` |  |
+| `id` | Unique identifier for the proxy server |
+| `port` | Proxy server port number |
+| `secret` | Secret key for proxy authentication |
+| `server` | Proxy server hostname or IP address |
 
 Operations: List.
 
@@ -279,9 +279,9 @@ Create an instance: `ping = client.Ping()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `server_id` | `str` |  |
-| `status` | `str` |  |
-| `time` | `float` |  |
+| `server_id` | `str` | The ID of the pinged server |
+| `status` | `str` | Status of the ping operation |
+| `time` | `float` | Ping time in milliseconds |
 
 #### Example: Create
 
@@ -306,10 +306,10 @@ Create an instance: `proxy = client.Proxy()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `port` | `int` |  |
-| `secret` | `str` |  |
-| `server` | `str` |  |
+| `id` | `str` | Unique identifier for the proxy server |
+| `port` | `int` | Proxy server port number |
+| `secret` | `str` | Secret key for proxy authentication |
+| `server` | `str` | Proxy server hostname or IP address |
 
 #### Example: List
 

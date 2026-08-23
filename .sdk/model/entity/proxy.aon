@@ -8,21 +8,25 @@ main: kit: entity: proxy: {
     {
       name: "id"
       req: false
+      short: "Unique identifier for the proxy server"
       type: "`$STRING`"
     }
     {
       name: "port"
       req: true
+      short: "Proxy server port number"
       type: "`$INTEGER`"
     }
     {
       name: "secret"
       req: true
+      short: "Secret key for proxy authentication"
       type: "`$STRING`"
     }
     {
       name: "server"
       req: true
+      short: "Proxy server hostname or IP address"
       type: "`$STRING`"
     }
   ]

@@ -42,18 +42,21 @@
                 }
               },
               "req": false,
+              "short": "The ID of the pinged server",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Status of the ping operation",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "time",
               "req": true,
+              "short": "Ping time in milliseconds",
               "type": "`$NUMBER`"
             }
           ],
@@ -96,24 +99,28 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the proxy server",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "port",
               "req": true,
+              "short": "Proxy server port number",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "secret",
               "req": true,
+              "short": "Secret key for proxy authentication",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "server",
               "req": true,
+              "short": "Proxy server hostname or IP address",
               "type": "`$STRING`"
             }
           ],

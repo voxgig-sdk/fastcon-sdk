@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Fastcon",
+			"slug": "fastcon",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -40,15 +43,18 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "The ID of the pinged server",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Status of the ping operation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "time",
 						"req": true,
+						"short": "Ping time in milliseconds",
 						"type": "`$NUMBER`",
 					},
 				},
@@ -84,21 +90,25 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the proxy server",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "port",
 						"req": true,
+						"short": "Proxy server port number",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "secret",
 						"req": true,
+						"short": "Secret key for proxy authentication",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "server",
 						"req": true,
+						"short": "Proxy server hostname or IP address",
 						"type": "`$STRING`",
 					},
 				},

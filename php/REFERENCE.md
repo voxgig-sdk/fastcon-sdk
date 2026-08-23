@@ -96,9 +96,9 @@ $ping = $client->Ping();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `server_id` | `string` | No |  |
-| `status` | `string` | No |  |
-| `time` | `float` | Yes |  |
+| `server_id` | `string` | No | The ID of the pinged server |
+| `status` | `string` | No | Status of the ping operation |
+| `time` | `float` | Yes | Ping time in milliseconds |
 
 ### Field Usage by Operation
 
@@ -160,10 +160,10 @@ $proxy = $client->Proxy();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `port` | `int` | Yes |  |
-| `secret` | `string` | Yes |  |
-| `server` | `string` | Yes |  |
+| `id` | `string` | No | Unique identifier for the proxy server |
+| `port` | `int` | Yes | Proxy server port number |
+| `secret` | `string` | Yes | Secret key for proxy authentication |
+| `server` | `string` | Yes | Proxy server hostname or IP address |
 
 ### Operations
 

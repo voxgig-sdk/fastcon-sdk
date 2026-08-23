@@ -229,9 +229,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `server_id` |  |
-| `status` |  |
-| `time` |  |
+| `server_id` | The ID of the pinged server |
+| `status` | Status of the ping operation |
+| `time` | Ping time in milliseconds |
 
 Operations: Create.
 
@@ -241,10 +241,10 @@ API path: `/api/ping`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `port` |  |
-| `secret` |  |
-| `server` |  |
+| `id` | Unique identifier for the proxy server |
+| `port` | Proxy server port number |
+| `secret` | Secret key for proxy authentication |
+| `server` | Proxy server hostname or IP address |
 
 Operations: List.
 
@@ -269,9 +269,9 @@ Create an instance: `local ping = client:Ping(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `server_id` | `string` |  |
-| `status` | `string` |  |
-| `time` | `number` |  |
+| `server_id` | `string` | The ID of the pinged server |
+| `status` | `string` | Status of the ping operation |
+| `time` | `number` | Ping time in milliseconds |
 
 #### Example: Create
 
@@ -296,10 +296,10 @@ Create an instance: `local proxy = client:Proxy(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `port` | `number` |  |
-| `secret` | `string` |  |
-| `server` | `string` |  |
+| `id` | `string` | Unique identifier for the proxy server |
+| `port` | `number` | Proxy server port number |
+| `secret` | `string` | Secret key for proxy authentication |
+| `server` | `string` | Proxy server hostname or IP address |
 
 #### Example: List
 

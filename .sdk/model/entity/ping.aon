@@ -14,16 +14,19 @@ main: kit: entity: ping: {
         }
       }
       req: false
+      short: "The ID of the pinged server"
       type: "`$STRING`"
     }
     {
       name: "status"
       req: false
+      short: "Status of the ping operation"
       type: "`$STRING`"
     }
     {
       name: "time"
       req: true
+      short: "Ping time in milliseconds"
       type: "`$NUMBER`"
     }
   ]

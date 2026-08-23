@@ -33,6 +33,9 @@ class FastconConfig
         return [
             "main" => [
                 "name" => "Fastcon",
+                "slug" => "fastcon",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -62,15 +65,18 @@ class FastconConfig
                   'type' => '`$STRING`',
                 ],
               ],
+              'short' => 'The ID of the pinged server',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'status',
+              'short' => 'Status of the ping operation',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'time',
               'req' => true,
+              'short' => 'Ping time in milliseconds',
               'type' => '`$NUMBER`',
             ],
           ],
@@ -106,21 +112,25 @@ class FastconConfig
           'fields' => [
             [
               'name' => 'id',
+              'short' => 'Unique identifier for the proxy server',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'port',
               'req' => true,
+              'short' => 'Proxy server port number',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'secret',
               'req' => true,
+              'short' => 'Secret key for proxy authentication',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'server',
               'req' => true,
+              'short' => 'Proxy server hostname or IP address',
               'type' => '`$STRING`',
             ],
           ],

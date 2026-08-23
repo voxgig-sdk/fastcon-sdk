@@ -15,12 +15,12 @@ import type {
 } from '../types'
 
 import type {
-  Proxy,
+  ProxyType,
   ProxyListMatch,
 } from '../FastconTypes'
 
 // TODO: needs Entity superclass
-class ProxyEntity extends FastconEntityBase<Proxy> {
+class ProxyEntity extends FastconEntityBase<ProxyType> {
 
   constructor(client: FastconSDK, entopts: any) {
     super(client, entopts)

@@ -233,9 +233,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `server_id` |  |
-| `status` |  |
-| `time` |  |
+| `server_id` | The ID of the pinged server |
+| `status` | Status of the ping operation |
+| `time` | Ping time in milliseconds |
 
 Operations: Create.
 
@@ -245,10 +245,10 @@ API path: `/api/ping`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `port` |  |
-| `secret` |  |
-| `server` |  |
+| `id` | Unique identifier for the proxy server |
+| `port` | Proxy server port number |
+| `secret` | Secret key for proxy authentication |
+| `server` | Proxy server hostname or IP address |
 
 Operations: List.
 
@@ -273,9 +273,9 @@ Create an instance: `ping = client.Ping`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `server_id` | `String` |  |
-| `status` | `String` |  |
-| `time` | `Float` |  |
+| `server_id` | `String` | The ID of the pinged server |
+| `status` | `String` | Status of the ping operation |
+| `time` | `Float` | Ping time in milliseconds |
 
 #### Example: Create
 
@@ -300,10 +300,10 @@ Create an instance: `proxy = client.Proxy`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
-| `port` | `Integer` |  |
-| `secret` | `String` |  |
-| `server` | `String` |  |
+| `id` | `String` | Unique identifier for the proxy server |
+| `port` | `Integer` | Proxy server port number |
+| `secret` | `String` | Secret key for proxy authentication |
+| `server` | `String` | Proxy server hostname or IP address |
 
 #### Example: List
 

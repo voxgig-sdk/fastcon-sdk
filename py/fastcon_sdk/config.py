@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Fastcon",
+            "slug": "fastcon",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -57,15 +60,18 @@ def make_config():
                 "type": "`$STRING`",
               },
             },
+            "short": "The ID of the pinged server",
             "type": "`$STRING`",
           },
           {
             "name": "status",
+            "short": "Status of the ping operation",
             "type": "`$STRING`",
           },
           {
             "name": "time",
             "req": True,
+            "short": "Ping time in milliseconds",
             "type": "`$NUMBER`",
           },
         ],
@@ -101,21 +107,25 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "short": "Unique identifier for the proxy server",
             "type": "`$STRING`",
           },
           {
             "name": "port",
             "req": True,
+            "short": "Proxy server port number",
             "type": "`$INTEGER`",
           },
           {
             "name": "secret",
             "req": True,
+            "short": "Secret key for proxy authentication",
             "type": "`$STRING`",
           },
           {
             "name": "server",
             "req": True,
+            "short": "Proxy server hostname or IP address",
             "type": "`$STRING`",
           },
         ],
