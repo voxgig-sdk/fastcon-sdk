@@ -44,9 +44,13 @@ main: kit: entity: proxy: {
         {
           method: "GET"
           orig: "/api/proxies"
-          parts: [
-            "api"
-            "proxies"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "proxies"
+            }
           ]
           transform: {
             req: "`reqdata`"

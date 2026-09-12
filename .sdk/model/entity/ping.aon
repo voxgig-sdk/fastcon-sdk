@@ -39,9 +39,13 @@ main: kit: entity: ping: {
         {
           method: "POST"
           orig: "/api/ping"
-          parts: [
-            "api"
-            "ping"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ping"
+            }
           ]
           transform: {
             req: "`reqdata`"

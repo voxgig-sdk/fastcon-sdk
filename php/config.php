@@ -92,14 +92,22 @@ class FastconConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/api/ping',
-                  'parts' => [
-                    'api',
-                    'ping',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'ping',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'ping',
                   ],
                 ],
               ],
@@ -135,6 +143,10 @@ class FastconConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'proxy',
           'op' => [
             'list' => [
@@ -146,14 +158,22 @@ class FastconConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/proxies',
-                  'parts' => [
-                    'api',
-                    'proxies',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'proxies',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'proxies',
                   ],
                 ],
               ],
