@@ -107,7 +107,7 @@ local results, err = client:Proxy():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fastcon-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
 | Python | `voxgig-sdk-fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
 | PHP | `voxgig-sdk/fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/fastcon-sdk/go` | `go get github.com/voxgig-sdk/fastcon-sdk/go@latest` |
@@ -121,7 +121,7 @@ local results, err = client:Proxy():list()
 ### TypeScript
 
 ```ts
-import { FastconSDK } from '@voxgig-sdk/fastcon'
+import { FastconSDK } from '@voxgig-sdk/fastcon-sdk'
 
 const client = new FastconSDK()
 
