@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Fastcon SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class FastconFeatures
@@ -14,8 +17,14 @@ class FastconFeatures
         switch ($name) {
             case "base":
                 return new FastconBaseFeature();
+            case "ratelimit":
+                return new FastconRatelimitFeature();
+            case "retry":
+                return new FastconRetryFeature();
             case "test":
                 return new FastconTestFeature();
+            case "timeout":
+                return new FastconTimeoutFeature();
             default:
                 return new FastconBaseFeature();
         }
@@ -31,7 +40,10 @@ class FastconFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

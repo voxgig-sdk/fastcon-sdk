@@ -3,19 +3,19 @@
     "proxy": {
       "PROXY00": {
         "id": "PROXY00",
-        "port": "s29",
+        "port": 41,
         "secret": "s2a",
         "server": "s2b"
       },
       "PROXY01": {
         "id": "PROXY01",
-        "port": "s51",
+        "port": 81,
         "secret": "s52",
         "server": "s53"
       },
       "PROXY02": {
         "id": "PROXY02",
-        "port": "s79",
+        "port": 121,
         "secret": "s7a",
         "server": "s7b"
       }
@@ -24,9 +24,93 @@
   "new": {
     "proxy": {
       "proxy_ref01": {
-        "port": "sa1",
+        "port": 161,
         "secret": "sa2",
         "server": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/proxies": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getTelegramProxyList",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": "1",
+                    "port": 443,
+                    "secret": "dd00000000000000000000000000000000",
+                    "server": "example.proxy.com"
+                  }
+                ],
+                "schema": {
+                  "items": {
+                    "description": "V2Ray-based VLESS or Trojan proxy configuration",
+                    "properties": {
+                      "id": {
+                        "description": "Unique identifier for the proxy server",
+                        "type": "string"
+                      },
+                      "port": {
+                        "description": "Proxy server port number",
+                        "maximum": 65535,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "secret": {
+                        "description": "Secret key for proxy authentication",
+                        "type": "string"
+                      },
+                      "server": {
+                        "description": "Proxy server hostname or IP address",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "server",
+                      "port",
+                      "secret"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with proxy list"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

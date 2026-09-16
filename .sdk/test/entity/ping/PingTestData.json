@@ -29,5 +29,150 @@
         "time": 122
       }
     }
+  },
+  "requests": {
+    "POST /api/ping": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "pingServer",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "server_id": "1"
+              },
+              "schema": {
+                "properties": {
+                  "server_id": {
+                    "description": "The ID of the proxy server to ping",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "server_id"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "server_id": "1",
+                  "status": "success",
+                  "time": 45
+                },
+                "schema": {
+                  "description": "Result of a ping test to a proxy server",
+                  "properties": {
+                    "server_id": {
+                      "description": "The ID of the pinged server",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status of the ping operation",
+                      "enum": [
+                        "success",
+                        "failed",
+                        "timeout"
+                      ],
+                      "type": "string"
+                    },
+                    "time": {
+                      "description": "Ping time in milliseconds",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "time"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful ping response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid server ID"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Server not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

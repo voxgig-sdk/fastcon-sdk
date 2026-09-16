@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { FastconSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('ProxyEntity', async () => {
 
     const live = 'TRUE' === process.env.FASTCON_TEST_LIVE
     for (const op of ['list']) {
-      if (maybeSkipControl(t, 'entityOp', 'proxy.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'proxy.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set FASTCON_TEST_PROXY_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"id","req":false,"short":"Unique identifier for the proxy server","type":"`$STRING`","index$":0},{"active":true,"name":"port","req":true,"short":"Proxy server port number","type":"`$INTEGER`","index$":1},{"active":true,"name":"secret","req":true,"short":"Secret key for proxy authentication","type":"`$STRING`","index$":2},{"active":true,"name":"server","req":true,"short":"Proxy server hostname or IP address","type":"`$STRING`","index$":3}],"id":{"field":"id","name":"id"},"name":"proxy","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{},"contract":{"id":"GET /api/proxies","json":"{\"operationId\":\"getTelegramProxyList\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"id\":\"1\",\"port\":443,\"secret\":\"dd00000000000000000000000000000000\",\"server\":\"example.proxy.com\"}],\"schema\":{\"items\":{\"description\":\"V2Ray-based VLESS or Trojan proxy configuration\",\"properties\":{\"id\":{\"description\":\"Unique identifier for the proxy server\",\"type\":\"string\"},\"port\":{\"description\":\"Proxy server port number\",\"maximum\":65535,\"minimum\":1,\"type\":\"integer\"},\"secret\":{\"description\":\"Secret key for proxy authentication\",\"type\":\"string\"},\"server\":{\"description\":\"Proxy server hostname or IP address\",\"type\":\"string\"}},\"required\":[\"server\",\"port\",\"secret\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with proxy list\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/api/proxies","segments":[{"lit":"api"},{"lit":"proxies"}],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"proxy","name__orig":"proxy","Name":"Proxy","name_":"proxy","name-":"proxy","NAME":"PROXY","index$":1}, {"active":true,"entity":"proxy","key$":"BasicProxyFlow","kind":"basic","name":"BasicProxyFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"proxy_ref01"}}],"index$":0}]}, 'Proxy')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['FASTCON_TEST_PROXY_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'FASTCON_TEST_PROXY_ENTID': idmap,
     'FASTCON_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.FASTCON_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['FASTCON_TEST_PROXY_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new FastconSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.FASTCON_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 
