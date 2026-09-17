@@ -1,4 +1,4 @@
 # Entity Models
 
-@"ping.aon"
-@"proxy.aon"
+@"./ping.aon"
+@"./proxy.aon"

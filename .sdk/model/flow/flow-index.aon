@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicPingFlow.aon"
-@"BasicProxyFlow.aon"
+@"./BasicPingFlow.aon"
+@"./BasicProxyFlow.aon"

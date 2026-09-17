@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      ping: {
-      },
-
-      proxy: {
-      },
-
+        ping: {
+        },
+  
+        proxy: {
+        },
+  
     }
   }
 

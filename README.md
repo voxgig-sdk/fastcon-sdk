@@ -107,12 +107,12 @@ local results, err = client:Proxy():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fastcon-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
-| Python | `voxgig-sdk-fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
-| PHP | `voxgig-sdk/fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fastcon-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/tags) |
+| Python | `voxgig-sdk-fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/tags) |
+| PHP | `voxgig-sdk/fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/fastcon-sdk/go` | `go get github.com/voxgig-sdk/fastcon-sdk/go@latest` |
-| Ruby | `voxgig-sdk-fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
-| Lua | `voxgig-sdk-fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/releases) |
+| Ruby | `voxgig-sdk-fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/tags) |
+| Lua | `voxgig-sdk-fastcon` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fastcon-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/fastcon-sdk/go-cli` | `go install github.com/voxgig-sdk/fastcon-sdk/go-cli/cmd/fastcon@latest` |
 | Go MCP server | `github.com/voxgig-sdk/fastcon-sdk/go-mcp` | `go get github.com/voxgig-sdk/fastcon-sdk/go-mcp@latest` |
 
