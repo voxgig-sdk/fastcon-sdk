@@ -24,41 +24,110 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "ping": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "server_id",
+          "fields": {
+            "server_id": {
+              "a": true,
+              "h": "Server Id",
+              "n": "server_id",
               "op": {
                 "create": {
                   "req": true,
                   "type": "`$STRING`"
                 }
               },
-              "req": false,
-              "short": "The ID of the pinged server",
-              "type": "`$STRING`"
+              "r": false,
+              "sh": "The ID of the pinged server",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Status of the ping operation",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Status of the ping operation",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "time",
-              "req": true,
-              "short": "Ping time in milliseconds",
-              "type": "`$NUMBER`"
+            "time": {
+              "a": true,
+              "h": "Time",
+              "n": "time",
+              "r": true,
+              "sh": "Ping time in milliseconds",
+              "t": "`$NUMBER`"
             }
-          ],
+          },
           "name": "ping",
           "op": {
             "create": {
@@ -66,18 +135,19 @@
               "name": "create",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /api/ping",
-                    "json": "{\"operationId\":\"pingServer\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"example\":{\"server_id\":\"1\"},\"schema\":{\"properties\":{\"server_id\":{\"description\":\"The ID of the proxy server to ping\",\"type\":\"string\"}},\"required\":[\"server_id\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"server_id\":\"1\",\"status\":\"success\",\"time\":45},\"schema\":{\"description\":\"Result of a ping test to a proxy server\",\"properties\":{\"server_id\":{\"description\":\"The ID of the pinged server\",\"type\":\"string\"},\"status\":{\"description\":\"Status of the ping operation\",\"enum\":[\"success\",\"failed\",\"timeout\"],\"type\":\"string\"},\"time\":{\"description\":\"Ping time in milliseconds\",\"type\":\"number\"}},\"required\":[\"time\"],\"type\":\"object\"}}},\"description\":\"Successful ping response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Bad request - invalid server ID\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Server not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/api/ping",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/api/ping",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -85,8 +155,7 @@
                       "lit": "ping"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -103,36 +172,40 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the proxy server",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the proxy server",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "port",
-              "req": true,
-              "short": "Proxy server port number",
-              "type": "`$INTEGER`"
+            "port": {
+              "a": true,
+              "h": "Port",
+              "n": "port",
+              "r": true,
+              "sh": "Proxy server port number",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "secret",
-              "req": true,
-              "short": "Secret key for proxy authentication",
-              "type": "`$STRING`"
+            "secret": {
+              "a": true,
+              "h": "Secret",
+              "n": "secret",
+              "r": true,
+              "sh": "Secret key for proxy authentication",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "server",
-              "req": true,
-              "short": "Proxy server hostname or IP address",
-              "type": "`$STRING`"
+            "server": {
+              "a": true,
+              "h": "Server",
+              "n": "server",
+              "r": true,
+              "sh": "Proxy server hostname or IP address",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -144,18 +217,19 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /api/proxies",
-                    "json": "{\"operationId\":\"getTelegramProxyList\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"id\":\"1\",\"port\":443,\"secret\":\"dd00000000000000000000000000000000\",\"server\":\"example.proxy.com\"}],\"schema\":{\"items\":{\"description\":\"V2Ray-based VLESS or Trojan proxy configuration\",\"properties\":{\"id\":{\"description\":\"Unique identifier for the proxy server\",\"type\":\"string\"},\"port\":{\"description\":\"Proxy server port number\",\"maximum\":65535,\"minimum\":1,\"type\":\"integer\"},\"secret\":{\"description\":\"Secret key for proxy authentication\",\"type\":\"string\"},\"server\":{\"description\":\"Proxy server hostname or IP address\",\"type\":\"string\"}},\"required\":[\"server\",\"port\",\"secret\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with proxy list\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/proxies",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/proxies",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -163,8 +237,7 @@
                       "lit": "proxies"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -593,15 +666,15 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "ping_ref01"
               },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
             }
           ]
         },
@@ -614,13 +687,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

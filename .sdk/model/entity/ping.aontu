@@ -1,0 +1,69 @@
+# Entity: ping
+
+main: kit: entity: ping: {
+
+  alias: field: {}
+
+  fields: {
+    server_id: {
+      h: "Server Id"
+      n: "server_id"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "The ID of the pinged server"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "Status of the ping operation"
+      t: "`$STRING`"
+    }
+    time: {
+      h: "Time"
+      n: "time"
+      r: true
+      sh: "Ping time in milliseconds"
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "ping"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /api/ping"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/api/ping"
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "ping"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

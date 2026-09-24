@@ -92,6 +92,8 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "server_id",
+						"title": "Server Id",
+						"type": "`$STRING`",
 						"op": map[string]any{
 							"create": map[string]any{
 								"req": true,
@@ -99,18 +101,19 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"short": "The ID of the pinged server",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "Status of the ping operation",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "Status of the ping operation",
 					},
 					map[string]any{
 						"name": "time",
+						"title": "Time",
+						"type": "`$NUMBER`",
 						"req": true,
 						"short": "Ping time in milliseconds",
-						"type": "`$NUMBER`",
 					},
 				},
 				"name": "ping",
@@ -120,7 +123,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/api/ping",
@@ -132,15 +134,17 @@ func MakeConfig() map[string]any {
 										"lit": "ping",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"ping",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -153,26 +157,30 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the proxy server",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the proxy server",
 					},
 					map[string]any{
 						"name": "port",
+						"title": "Port",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "Proxy server port number",
-						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "secret",
+						"title": "Secret",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Secret key for proxy authentication",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "server",
+						"title": "Server",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Proxy server hostname or IP address",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -186,7 +194,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/proxies",
@@ -198,15 +205,17 @@ func MakeConfig() map[string]any {
 										"lit": "proxies",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"proxies",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

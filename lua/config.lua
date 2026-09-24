@@ -88,6 +88,8 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "server_id",
+            ["title"] = "Server Id",
+            ["type"] = "`$STRING`",
             ["op"] = {
               ["create"] = {
                 ["req"] = true,
@@ -95,18 +97,19 @@ local function make_config()
               },
             },
             ["short"] = "The ID of the pinged server",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "status",
-            ["short"] = "Status of the ping operation",
+            ["title"] = "Status",
             ["type"] = "`$STRING`",
+            ["short"] = "Status of the ping operation",
           },
           {
             ["name"] = "time",
+            ["title"] = "Time",
+            ["type"] = "`$NUMBER`",
             ["req"] = true,
             ["short"] = "Ping time in milliseconds",
-            ["type"] = "`$NUMBER`",
           },
         },
         ["name"] = "ping",
@@ -116,7 +119,6 @@ local function make_config()
             ["name"] = "create",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/api/ping",
@@ -128,15 +130,17 @@ local function make_config()
                     ["lit"] = "ping",
                   },
                 },
-                ["select"] = {},
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "api",
                   "ping",
                 },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },
@@ -149,26 +153,30 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
-            ["short"] = "Unique identifier for the proxy server",
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
+            ["short"] = "Unique identifier for the proxy server",
           },
           {
             ["name"] = "port",
+            ["title"] = "Port",
+            ["type"] = "`$INTEGER`",
             ["req"] = true,
             ["short"] = "Proxy server port number",
-            ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "secret",
+            ["title"] = "Secret",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Secret key for proxy authentication",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "server",
+            ["title"] = "Server",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Proxy server hostname or IP address",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -182,7 +190,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/proxies",
@@ -194,15 +201,17 @@ local function make_config()
                     ["lit"] = "proxies",
                   },
                 },
-                ["select"] = {},
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "api",
                   "proxies",
                 },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },

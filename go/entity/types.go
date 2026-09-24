@@ -1,7 +1,7 @@
 // Typed models for the Fastcon SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,9 +14,6 @@ import (
 
 // Ping is the typed data model for the ping entity.
 type Ping struct {
-	ServerId *string `json:"server_id,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Time float64 `json:"time"`
 }
 
 // PingCreateData is the typed request payload for Ping.CreateTyped.
@@ -28,10 +25,6 @@ type PingCreateData struct {
 
 // Proxy is the typed data model for the proxy entity.
 type Proxy struct {
-	Id *string `json:"id,omitempty"`
-	Port int `json:"port"`
-	Secret string `json:"secret"`
-	Server string `json:"server"`
 }
 
 // ProxyListMatch is the typed request payload for Proxy.ListTyped.

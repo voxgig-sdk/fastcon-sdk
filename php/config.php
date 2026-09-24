@@ -114,6 +114,8 @@ class FastconConfig
           'fields' => [
             [
               'name' => 'server_id',
+              'title' => 'Server Id',
+              'type' => '`$STRING`',
               'op' => [
                 'create' => [
                   'req' => true,
@@ -121,18 +123,19 @@ class FastconConfig
                 ],
               ],
               'short' => 'The ID of the pinged server',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'status',
-              'short' => 'Status of the ping operation',
+              'title' => 'Status',
               'type' => '`$STRING`',
+              'short' => 'Status of the ping operation',
             ],
             [
               'name' => 'time',
+              'title' => 'Time',
+              'type' => '`$NUMBER`',
               'req' => true,
               'short' => 'Ping time in milliseconds',
-              'type' => '`$NUMBER`',
             ],
           ],
           'name' => 'ping',
@@ -142,7 +145,6 @@ class FastconConfig
               'name' => 'create',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/api/ping',
@@ -154,15 +156,17 @@ class FastconConfig
                       'lit' => 'ping',
                     ],
                   ],
-                  'select' => [],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
                   'parts' => [
                     'api',
                     'ping',
                   ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],
@@ -175,26 +179,30 @@ class FastconConfig
           'fields' => [
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the proxy server',
+              'title' => 'Id',
               'type' => '`$STRING`',
+              'short' => 'Unique identifier for the proxy server',
             ],
             [
               'name' => 'port',
+              'title' => 'Port',
+              'type' => '`$INTEGER`',
               'req' => true,
               'short' => 'Proxy server port number',
-              'type' => '`$INTEGER`',
             ],
             [
               'name' => 'secret',
+              'title' => 'Secret',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Secret key for proxy authentication',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'server',
+              'title' => 'Server',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Proxy server hostname or IP address',
-              'type' => '`$STRING`',
             ],
           ],
           'id' => [
@@ -208,7 +216,6 @@ class FastconConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/proxies',
@@ -220,15 +227,17 @@ class FastconConfig
                       'lit' => 'proxies',
                     ],
                   ],
-                  'select' => [],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
                   'parts' => [
                     'api',
                     'proxies',
                   ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],

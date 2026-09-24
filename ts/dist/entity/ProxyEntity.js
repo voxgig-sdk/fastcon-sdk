@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProxyEntity = void 0;
 const FastconEntityBase_1 = require("../FastconEntityBase");
-// TODO: needs Entity superclass
 class ProxyEntity extends FastconEntityBase_1.FastconEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

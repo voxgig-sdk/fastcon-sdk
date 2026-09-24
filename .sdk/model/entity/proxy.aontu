@@ -1,0 +1,75 @@
+# Entity: proxy
+
+main: kit: entity: proxy: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the proxy server"
+      t: "`$STRING`"
+    }
+    port: {
+      h: "Port"
+      n: "port"
+      r: true
+      sh: "Proxy server port number"
+      t: "`$INTEGER`"
+    }
+    secret: {
+      h: "Secret"
+      n: "secret"
+      r: true
+      sh: "Secret key for proxy authentication"
+      t: "`$STRING`"
+    }
+    server: {
+      h: "Server"
+      n: "server"
+      r: true
+      sh: "Proxy server hostname or IP address"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "proxy"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/proxies"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/proxies"
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "proxies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

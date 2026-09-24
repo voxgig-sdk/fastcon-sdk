@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,25 +135,28 @@ class Config {
       "fields": [
         {
           "name": "server_id",
+          "title": "Server Id",
+          "type": "`$STRING`",
           "op": {
             "create": {
               "req": true,
               "type": "`$STRING`"
             }
           },
-          "short": "The ID of the pinged server",
-          "type": "`$STRING`"
+          "short": "The ID of the pinged server"
         },
         {
           "name": "status",
-          "short": "Status of the ping operation",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "Status of the ping operation"
         },
         {
           "name": "time",
+          "title": "Time",
+          "type": "`$NUMBER`",
           "req": true,
-          "short": "Ping time in milliseconds",
-          "type": "`$NUMBER`"
+          "short": "Ping time in milliseconds"
         }
       ],
       "name": "ping",
@@ -170,7 +166,6 @@ class Config {
           "name": "create",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/api/ping",
@@ -182,15 +177,17 @@ class Config {
                   "lit": "ping"
                 }
               ],
-              "select": {},
+              "parts": [
+                "api",
+                "ping"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "api",
-                "ping"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }
@@ -203,26 +200,30 @@ class Config {
       "fields": [
         {
           "name": "id",
-          "short": "Unique identifier for the proxy server",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for the proxy server"
         },
         {
           "name": "port",
+          "title": "Port",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "Proxy server port number",
-          "type": "`$INTEGER`"
+          "short": "Proxy server port number"
         },
         {
           "name": "secret",
+          "title": "Secret",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Secret key for proxy authentication",
-          "type": "`$STRING`"
+          "short": "Secret key for proxy authentication"
         },
         {
           "name": "server",
+          "title": "Server",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Proxy server hostname or IP address",
-          "type": "`$STRING`"
+          "short": "Proxy server hostname or IP address"
         }
       ],
       "id": {
@@ -236,7 +237,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/api/proxies",
@@ -248,15 +248,17 @@ class Config {
                   "lit": "proxies"
                 }
               ],
-              "select": {},
+              "parts": [
+                "api",
+                "proxies"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "api",
-                "proxies"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }

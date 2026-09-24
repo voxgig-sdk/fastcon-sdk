@@ -19,7 +19,6 @@ import type {
   ProxyListMatch,
 } from '../FastconTypes'
 
-// TODO: needs Entity superclass
 class ProxyEntity extends FastconEntityBase<ProxyType> {
 
   constructor(client: FastconSDK, entopts: any) {

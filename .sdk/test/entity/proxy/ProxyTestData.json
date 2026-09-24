@@ -33,85 +33,8 @@
   "requests": {
     "GET /api/proxies": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getTelegramProxyList",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "example": [
-                  {
-                    "id": "1",
-                    "port": 443,
-                    "secret": "dd00000000000000000000000000000000",
-                    "server": "example.proxy.com"
-                  }
-                ],
-                "schema": {
-                  "items": {
-                    "description": "V2Ray-based VLESS or Trojan proxy configuration",
-                    "properties": {
-                      "id": {
-                        "description": "Unique identifier for the proxy server",
-                        "type": "string"
-                      },
-                      "port": {
-                        "description": "Proxy server port number",
-                        "maximum": 65535,
-                        "minimum": 1,
-                        "type": "integer"
-                      },
-                      "secret": {
-                        "description": "Secret key for proxy authentication",
-                        "type": "string"
-                      },
-                      "server": {
-                        "description": "Proxy server hostname or IP address",
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "server",
-                      "port",
-                      "secret"
-                    ],
-                    "type": "object"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "Successful response with proxy list"
-          },
-          "500": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "description": "Error response",
-                  "properties": {
-                    "code": {
-                      "description": "Error code",
-                      "type": "string"
-                    },
-                    "error": {
-                      "description": "Error message",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "error"
-                  ],
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Internal server error"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }
